@@ -188,8 +188,8 @@ section{
     width: 95%;
     margin-right: auto;
     margin-left: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(180px,auto));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-top: 2rem;
 }
@@ -199,6 +199,12 @@ section{
     height: 600px;
 }
 
+.caixa img{
+    transform: scale(1);
+    transition: transform .5s ease-in-out;
+}
+
+
 .caixa .caixa-img img{
     width: 100%;
     height: 100%;
@@ -207,6 +213,39 @@ section{
 
 .caixa .caixa-img img:hover{
     transform: translateY(-10px);
-    transition: 0.2 all linear;
+    transition: transform 0.8s ease-in-out;
+    transform: scale(1.04);
+
 }
+
+.assunto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+     padding: 3em;
+    box-sizing: border-box;
+
+}
+
+.sobre{
+    background-color:#121213;
+    padding: 1.2em;
+    border-radius: 6px;
+    box-shadow: rgb(94, 93, 93) 0px 3px 8px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.sobre h1{
+    margin-bottom: 1em;
+    border-bottom: 1px solid var(--main-color);
+}
+
+.sobre b{
+    border-bottom: 1px solid var(--main-color);
+}
+
+
+
 
