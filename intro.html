@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="styles.css">
+    <meta name="author" content="Jose Rodrigo">
+    <title>Introdução</title>
+</head>
+<body class="body-intro">
+
+    <header>
+        <a href="" class="logo">
+           <i class="bx bxs-movie"></i> Filmes
+        </a>
+        <!-- <div class="bx bx-menu" id="menu-icon"></div> -->
+
+    </header>
+
+    <section class="intro">
+            <div class="apresentacao">
+                <h1 class="title">
+                    Catálogo de Filmes para a Educação
+                </h1>
+
+                <p class="intro">
+                    Este catálogo de filmes é uma ferramenta pensada especialmente para professores da educação básica, com foco no ensino médio, que desejam integrar o universo do cinema ao currículo escolar, especialmente na área de Química.
+                </p>
+
+                <p class="intro">
+                    Junto ao catálogo, apresentamos uma proposta de sequência didática que utiliza filmes de ficção para abordar temas sociais relacionados à ciência, promovendo o letramento científico dos estudantes.
+                </p>
+
+                <p class="autor">
+                    Organizado por Luís Carlos da Silva (PROFQUI-UFPB) <br>
+                    Orientação: Profª Karen Cacilda Weber <br>
+                    Coorientação: Prof. Andrei Steveen Moreno Rodríguez
+                </p>
+
+                <a href="index.html" class="btn-btn">
+                    Explorar Catálogo
+                </a>
+
+            </div>
+        </section>
+
+        <script>
+        // Criando bolhas animadas no fundo
+        function createBubbles() {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            const size = Math.random() * 80 + 20 + 'px';
+            bubble.style.width = size;
+            bubble.style.height = size;
+            bubble.style.left = Math.random() * window.innerWidth + 'px';
+            bubble.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            document.body.appendChild(bubble);
+
+            setTimeout(() => {
+                bubble.remove();
+            }, 10000);
+        }
+        setInterval(createBubbles, 500);
+    </script>
+
+    <script src="main.js"></script>
+
+
+
+    
+</body>
+</html>
