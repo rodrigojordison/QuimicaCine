@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="author" content="Jose Rodrigo">
+    <title>Fórum -QuímicaCine</title>
+</head>
+<style>
+        .forum-section {
+            min-height: 100vh;
+            padding: 120px 5% 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .forum-container {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .forum-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .forum-title {
+            font-size: 2.8rem;
+            color: #e50914;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .forum-title i {
+            font-size: 3rem;
+        }
+
+        .forum-description {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .forum-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .giscus-container {
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .forum-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .forum-title {
+                font-size: 2rem;
+            }
+
+            .forum-title i {
+                font-size: 2.2rem;
+            }
+
+            .forum-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="body-intro">
+
+    <header>
+        <a href="catalogo.html" class="logo">
+           <i class="bx bxs-movie"></i> Filmes
+        </a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <ul class="navbar">
+            <li><a href="catalogo.html#home">Início</a></li>
+            <li><a href="catalogo.html#filmes">Filmes</a></li>
+            <li><a href="index.html">Apresentação</a></li>
+            <li><a href="forum.html" class="home-active">Fórum</a></li>
+        </ul>
+
+        <a href="#" class="btn">Login</a>
+    </header>
+
+    <section class="forum-section">
+        <div class="forum-container">
+            <div class="forum-header">
+                <h1 class="forum-title">
+                    <i class='bx bxs-conversation'></i>
+                    Fórum de Discussão
+                </h1>
+                
+                <p class="forum-description">
+                    Bem-vindo ao espaço de diálogo do QuimicaCine! Aqui você pode compartilhar suas experiências, 
+                    tirar dúvidas sobre a aplicação dos filmes em sala de aula, sugerir novos títulos e 
+                    trocar ideias com outros educadores.
+                </p>
+
+                <div class="forum-info">
+                    <p><strong>💡 Dica:</strong> Para comentar, você precisa fazer login com sua conta do GitHub. 
+                    É rápido, seguro e gratuito!</p>
+                </div>
+            </div>
+
+            <div class="giscus-container">
+                <script src="https://giscus.app/client.js"
+                        data-repo="rodrigojordison/QuimicaCine"
+                        data-repo-id="R_kgDOPFUhGw"
+                        data-category="General"
+                        data-category-id="DIC_kwDOPFUhG84Cx-oc"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="1"
+                        data-input-position="top"
+                        data-theme="dark_tritanopia"
+                        data-lang="pt"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Criando bolhas animadas no fundo
+        function createBubbles() {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            const size = Math.random() * 80 + 20;
+            bubble.style.width = size + 'px';
+            bubble.style.height = size + 'px';
+            
+            // Garante que a bolha não ultrapasse a largura da tela
+            const maxLeft = window.innerWidth - size;
+            bubble.style.left = Math.random() * maxLeft + 'px';
+            
+            bubble.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            document.body.appendChild(bubble);
+
+            setTimeout(() => {
+                bubble.remove();
+            }, 10000);
+        }
+        setInterval(createBubbles, 500);
+    </script>
+
+    <script src="main.js"></script>
+    
+</body>
+</html>
+
+
+    
+
+</html>

@@ -3,41 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frankenstein de Mary Shelley</title>
+    <title>Frank - O Químico</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        .movie-details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 120px 5% 60px;
+        }
+
+        .movie-card {
+            background: linear-gradient(145deg, #1a1a1d 0%, #0f0f10 100%);
+            padding: 2.5em;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease;
+            border: 1px solid rgba(229, 9, 20, 0.2);
+        }
+
+        .movie-header {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .movie-poster {
+            flex-shrink: 0;
+        }
+
+        .movie-poster img {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .movie-poster img:hover {
+            transform: scale(1.05);
+        }
+
+        .movie-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .movie-card h1 {
+            color: #e50914;
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            border-bottom: 2px solid var(--main-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .movie-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #999;
+            font-size: 0.95rem;
+        }
+
+        .meta-item i {
+            color: #e50914;
+            font-size: 1.2rem;
+        }
+
+        .section-title {
+            color: #e50914;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title i {
+            font-size: 1.5rem;
+        }
+
+        .movie-card p {
+            color: #ddd;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .topics-list {
+            background: rgba(229, 9, 20, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #e50914;
+            margin-top: 1rem;
+        }
+
+        .topics-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .topics-list li {
+            color: #ddd;
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .topics-list li::before {
+            content: "▸";
+            color: #e50914;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-watch, .btn-back {
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-watch {
+            background: #e50914;
+            color: white;
+        }
+
+        .btn-watch:hover {
+            background: #c4070f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(229, 9, 20, 0.4);
+        }
+
+        .btn-back {
+            background: transparent;
+            color: white;
+            border: 2px solid #555;
+        }
+
+        .btn-back:hover {
+            border-color: #e50914;
+            color: #e50914;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .movie-header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .movie-poster img {
+                width: 180px;
+                height: 270px;
+            }
+
+            .movie-card h1 {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            .movie-meta {
+                justify-content: center;
+            }
+
+            .action-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <a href="" class="logo">
+        <a href="catalogo.html" class="logo">
            <i class="bx bxs-movie"></i> Filmes
         </a>
         <div class="bx bx-menu" id="menu-icon"></div>
 
-    <!-- inicio -->
         <ul class="navbar">
-            <li><a href="catalogo.html" class="home-active">Início</a></li>
+            <li><a href="catalogo.html#home">Início</a></li>
+            <li><a href="catalogo.html#filmes">Filmes</a></li>
+            <li><a href="index.html">Apresentação</a></li>
+            <li><a href="forum.html">Fórum</a></li>
         </ul>
+
+        <a href="#" class="btn">Login</a>
     </header>
 
-    <section class="assunto">
-        <div class="sobre">
-        <h1>Frankenstein de Mary Shelley
-        </h1>
-        <b><p>Temática:</b> Criação da Vida Artificial por meio de processos químicos e biológicos, Ética na Ciência, Interação entre Ciência e Sociedade, Busca pelo Conhecimento e implicações éticas, sociais e emocionais, ressaltando a importância de uma abordagem responsável e consciente na prática científica. Desenvolvimento da Ciência, reações químicas e suas aplicações.
-        </p>
-   </div> 
+    <section class="movie-details">
+        <div class="movie-card">
+            <div class="movie-header">
+                <div class="movie-poster">
+                    <img src="imagens/fra.jpg" alt="Frank">
+                </div>
+                
+                <div class="movie-info">
+                    <h1>Frank - O Químico</h1>
+                    
+                    <div class="movie-meta">
+                        <div class="meta-item">
+                            <i class='bx bx-calendar'></i>
+                            <span>2002</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class='bx bx-time'></i>
+                            <span>103 min</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class='bx bx-movie-play'></i>
+                            <span>Suspense/Drama</span>
+                        </div>
+                    </div>
 
+                    <div class="meta-item">
+                        <i class='bx bx-user'></i>
+                        <span><strong>Diretor:</strong> Lee Tamahori</span>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">
+                <i class='bx bx-dna'></i>
+                Sinopse
+            </h2>
+            <p>
+                Frank Abagnale Jr., ainda adolescente, torna-se um dos falsificadores de cheques mais bem-sucedidos 
+                da história americana. Mas além de suas fraudes bancárias, Frank também se passa por piloto de aviação, 
+                médico e advogado. Em uma de suas identidades falsas, ele trabalha em um hospital e precisa demonstrar 
+                conhecimentos básicos de química e biologia para manter sua farsa. O filme acompanha o agente do FBI 
+                Carl Hanratty em sua perseguição incansável para capturar Frank.
+            </p>
+
+            <h2 class="section-title">
+                <i class='bx bx-test-tube'></i>
+                Temática Química e Científica
+            </h2>
+            
+            <div class="topics-list">
+                <ul>
+                    <li><strong>Química Forense:</strong> Análise de documentos falsificados e tintas</li>
+                    <li><strong>Bioquímica:</strong> Conhecimentos básicos necessários para se passar por médico</li>
+                    <li><strong>Química de Materiais:</strong> Composição de papéis, tintas e solventes usados em falsificações</li>
+                    <li><strong>Métodos de Detecção:</strong> Técnicas científicas para identificar fraudes</li>
+                    <li><strong>Impressão e Reprodução:</strong> Processos químicos envolvidos na impressão de documentos</li>
+                    <li><strong>Inteligência e Engenho:</strong> Aplicação criativa (mas ilegal) do conhecimento científico</li>
+                    <li><strong>Ética Profissional:</strong> Responsabilidade no uso de conhecimentos especializados</li>
+                    <li><strong>Perícia Criminal:</strong> Uso da química na investigação de crimes</li>
+                </ul>
+            </div>
+
+            <h2 class="section-title">
+                <i class='bx bx-book-open'></i>
+                Aplicação em Sala de Aula
+            </h2>
+            <p>
+                Útil para discutir química forense, análise de materiais e ética profissional. O filme mostra como 
+                conhecimentos científicos podem ser mal utilizados, abrindo espaço para debates sobre responsabilidade 
+                social e ética no uso do conhecimento. Também permite discussões sobre como a química é aplicada na 
+                detecção de fraudes e falsificações, além de apresentar aspectos da perícia criminal e investigação 
+                científica.
+            </p>
+
+            <div class="action-buttons">
+                <a href="#" class="btn-watch">
+                    <i class='bx bx-play-circle'></i>
+                    Assistir Trailer
+                </a>
+                <a href="catalogo.html#filmes" class="btn-back">
+                    <i class='bx bx-arrow-back'></i>
+                    Voltar ao Catálogo
+                </a>
+            </div>
+        </div>
     </section>
 
-    
+    <script>
+        function createBubbles() {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            const size = Math.random() * 80 + 20;
+            bubble.style.width = size + 'px';
+            bubble.style.height = size + 'px';
+            bubble.style.position = 'fixed';
+            
+            const maxLeft = window.innerWidth - size - 20;
+            const randomLeft = Math.random() * maxLeft;
+            bubble.style.left = Math.max(0, randomLeft) + 'px';
+            
+            bubble.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            document.body.appendChild(bubble);
+
+            setTimeout(() => {
+                bubble.remove();
+            }, 10000);
+        }
+        setInterval(createBubbles, 500);
+    </script>
+
+    <script src="main.js"></script>
     
 </body>
 </html>
-
-
-
-

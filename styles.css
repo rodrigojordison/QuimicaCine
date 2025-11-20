@@ -19,6 +19,7 @@
     --bg-color: #fff;
 }
 
+
 body{
     background: var(--text-color);
     color: var(--bg-color);
@@ -283,25 +284,6 @@ section{
 
 }
 
-.sobre{
-    background-color:#121213;
-    padding: 1.2em;
-    border-radius: 6px;
-    box-shadow: rgb(94, 93, 93) 0px 3px 8px;
-    max-width: 600px;
-    margin: 0 auto;
-    animation: fadeIn 1.5s ease;
-}
-
-.sobre h1{
-    margin-bottom: 1em;
-    border-bottom: 1px solid var(--main-color);
-}
-
-.sobre b{
-    border-bottom: 1px solid var(--main-color);
-}
-
 .body-intro{
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #0e0e0e, #1b1b2f);
@@ -442,11 +424,13 @@ section{
 }
 
 .bubble {
-    position: absolute;
+    position: fixed;
     bottom: -100px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     animation: rise 10s linear infinite;
+    pointer-events: none; 
+    z-index: -1;
 }
 
 @keyframes rise {
