@@ -150,13 +150,18 @@ section{
         /* width: 100%; */
         text-align: center;
         padding: 1rem 0;
-        position: fixed;
+        /* position: fixed; */
     }
     
     .navbar a{
-        display: block;
-        padding: 0.5rem 2rem;
+        display: block !important;
+        width: 100%;
+        /* padding: 18px 20px; */
+        text-align: center;
+        margin: 5px 0;
+        color: var(--bg-color);
         font-size: 1.1rem;
+        font-weight: 500;
     }
     
     header .btn{
