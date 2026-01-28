@@ -4,36 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avatar</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --main-color: #e50914;
+            --bg-dark: #0f0f10;
+            --bg-card: #1a1a1d;
+            --text-light: #ddd;
+            --text-gray: #999;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0e0e0e, #1b1b2f);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ============ HEADER ============ */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 100px;
+            /* background: rgba(2, 3, 7, 0.95); */
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo i {
+            font-size: 24px;
+            color: var(--main-color);
+        }
+
+        #menu-icon {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--main-color);
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        .navbar a:hover {
+            color: var(--main-color);
+        }
+
+        .btn {
+            padding: 0.7rem 1.4rem;
+            background: var(--main-color);
+            color: white;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: #c4070f;
+            transform: scale(1.05);
+        }
+
+        /* ============ MOVIE DETAILS ============ */
         .movie-details {
+            padding: 140px 5% 60px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 120px 5% 60px;
         }
 
         .movie-card {
-            background: linear-gradient(145deg, #1a1a1d 0%, #0f0f10 100%);
-            padding: 2.5em;
+            background: linear-gradient(145deg, var(--bg-card) 0%, var(--bg-dark) 100%);
+            padding: 2.5rem;
             border-radius: 15px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-            max-width: 900px;
+            max-width: 1000px;
             width: 100%;
-            margin: 0 auto;
-            animation: fadeInUp 0.8s ease;
             border: 1px solid rgba(229, 9, 20, 0.2);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .movie-header {
             display: flex;
             gap: 2rem;
             margin-bottom: 2rem;
-            flex-wrap: wrap;
         }
 
         .movie-poster {
@@ -41,8 +162,8 @@
         }
 
         .movie-poster img {
-            width: 200px;
-            height: 300px;
+            width: 220px;
+            height: 330px;
             object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -55,11 +176,10 @@
 
         .movie-info {
             flex: 1;
-            min-width: 250px;
         }
 
         .movie-card h1 {
-            color: #e50914;
+            color: var(--main-color);
             margin-bottom: 1rem;
             font-size: 2.2rem;
             border-bottom: 2px solid var(--main-color);
@@ -77,19 +197,19 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #999;
+            color: var(--text-gray);
             font-size: 0.95rem;
         }
 
         .meta-item i {
-            color: #e50914;
+            color: var(--main-color);
             font-size: 1.2rem;
         }
 
         .section-title {
-            color: #e50914;
-            font-size: 1.3rem;
-            margin: 2rem 0 1rem 0;
+            color: var(--main-color);
+            font-size: 1.4rem;
+            margin: 2.5rem 0 1rem 0;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -100,67 +220,86 @@
         }
 
         .movie-card p {
-            color: #ddd;
+            color: var(--text-light);
             line-height: 1.8;
             margin-bottom: 1rem;
             text-align: justify;
         }
 
+        /* ============ TOPICS LIST - OTIMIZADO ============ */
         .topics-list {
-            background: rgba(229, 9, 20, 0.1);
-            padding: 1.5rem;
+            background: rgba(229, 9, 20, 0.08);
+            padding: 2rem;
             border-radius: 10px;
-            border-left: 4px solid #e50914;
+            border-left: 4px solid var(--main-color);
             margin-top: 1rem;
         }
 
         .topics-list ul {
             list-style: none;
-            padding-left: 0;
+            display: grid;
+            gap: 1.2rem;
         }
 
         .topics-list li {
-            color: #ddd;
-            padding: 0.5rem 0;
+            color: var(--text-light);
             display: flex;
             align-items: flex-start;
-            gap: 0.8rem;
+            gap: 1rem;
+            line-height: 1.7;
+            padding: 0.6rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .topics-list li:hover {
+            background: rgba(229, 9, 20, 0.15);
+            transform: translateX(8px);
         }
 
         .topics-list li::before {
             content: "▸";
-            color: #e50914;
+            color: var(--main-color);
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
+        .topics-list strong {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* ============ ACTION BUTTONS ============ */
         .action-buttons {
             display: flex;
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             flex-wrap: wrap;
         }
 
         .btn-watch, .btn-back {
-            padding: 0.8rem 2rem;
+            padding: 0.9rem 2rem;
             border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
+            font-size: 1rem;
         }
 
         .btn-watch {
-            background: #e50914;
+            background: var(--main-color);
             color: white;
         }
 
         .btn-watch:hover {
             background: #c4070f;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(229, 9, 20, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(229, 9, 20, 0.5);
         }
 
         .btn-back {
@@ -170,49 +309,128 @@
         }
 
         .btn-back:hover {
-            border-color: #e50914;
-            color: #e50914;
+            border-color: var(--main-color);
+            color: var(--main-color);
+            transform: translateY(-3px);
         }
 
-        @keyframes fadeInUp {
-            from {
+        /* ============ BUBBLES ANIMATION ============ */
+        .bubble {
+            position: fixed;
+            bottom: -100px;
+            background: rgba(229, 9, 20, 0.12);
+            border-radius: 50%;
+            animation: rise 12s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-1200px) scale(0.5);
                 opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
             }
         }
 
+        /* ============ RESPONSIVE ============ */
         @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            #menu-icon {
+                display: block;
+            }
+
+            .navbar {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: rgba(2, 3, 7, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transition: left 0.4s ease;
+                text-align: center;
+            }
+
+            .navbar.active {
+                left: 0;
+            }
+
+            header .btn {
+                display: none;
+            }
+
+            .movie-details {
+                padding: 100px 20px 40px;
+            }
+
+            .movie-card {
+                padding: 1.5rem;
+            }
+
             .movie-header {
                 flex-direction: column;
                 align-items: center;
+                text-align: center;
             }
 
             .movie-poster img {
-                width: 180px;
-                height: 270px;
+                width: 200px;
+                height: 300px;
             }
 
             .movie-card h1 {
                 font-size: 1.8rem;
-                text-align: center;
             }
 
             .movie-meta {
                 justify-content: center;
             }
 
+            .topics-list {
+                padding: 1.3rem;
+            }
+
+            .topics-list li {
+                font-size: 0.95rem;
+            }
+
             .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn-watch, .btn-back {
+                width: 100%;
                 justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .movie-card h1 {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .movie-poster img {
+                width: 180px;
+                height: 270px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- HEADER -->
     <header>
         <a href="catalogo.html" class="logo">
            <i class="bx bxs-movie"></i> Filmes
@@ -229,11 +447,12 @@
         <a href="#" class="btn">Login</a>
     </header>
 
+    <!-- MOVIE DETAILS -->
     <section class="movie-details">
         <div class="movie-card">
             <div class="movie-header">
                 <div class="movie-poster">
-                    <img src="imagens/avatar.jpg" alt="Avatar">
+                    <img src="imagens/avatar.jpg" alt="Avatar" onerror="this.src='https://via.placeholder.com/220x330/1a1a1d/e50914?text=Avatar'">
                 </div>
                 
                 <div class="movie-info">
@@ -261,6 +480,7 @@
                 </div>
             </div>
 
+            <!-- SINOPSE -->
             <h2 class="section-title">
                 <i class='bx bx-planet'></i>
                 Sinopse
@@ -274,6 +494,7 @@
                 uma Na'vi chamada Neytiri e pela própria Pandora, questionando suas lealdades.
             </p>
 
+            <!-- TEMÁTICA -->
             <h2 class="section-title">
                 <i class='bx bx-leaf'></i>
                 Temática Científica e Ambiental
@@ -281,18 +502,64 @@
             
             <div class="topics-list">
                 <ul>
-                    <li><strong>Sustentabilidade:</strong> O equilíbrio entre desenvolvimento tecnológico e preservação ambiental</li>
-                    <li><strong>Física:</strong> Fenômenos como gravitação reduzida, magnetismo e as montanhas flutuantes de Pandora</li>
-                    <li><strong>Biologia:</strong> Biodiversidade, ecossistemas complexos e adaptações evolutivas da fauna e flora</li>
-                    <li><strong>Teoria da Evolução:</strong> Como as espécies de Pandora se adaptaram ao ambiente único do planeta</li>
-                    <li><strong>Química:</strong> O mineral "unobtainium" e suas propriedades supercondutoras</li>
-                    <li><strong>Biotecnologia:</strong> A criação dos avatares através de engenharia genética</li>
-                    <li><strong>Neurociência:</strong> A conexão neural dos Na'vi com a natureza através de suas tranças</li>
-                    <li><strong>Questões éticas:</strong> Colonização, exploração de recursos, respeito a culturas nativas</li>
-                    <li><strong>Aspectos culturais:</strong> A relação espiritual dos Na'vi com Eywa (a natureza interconectada)</li>
+                    <li>
+                        <div>
+                            <strong>Sustentabilidade:</strong> 
+                            O equilíbrio entre desenvolvimento tecnológico e preservação ambiental
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Física:</strong> 
+                            Fenômenos como gravitação reduzida, magnetismo e as montanhas flutuantes de Pandora
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Biologia:</strong> 
+                            Biodiversidade, ecossistemas complexos e adaptações evolutivas da fauna e flora
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Teoria da Evolução:</strong> 
+                            Como as espécies de Pandora se adaptaram ao ambiente único do planeta
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Química:</strong> 
+                            O mineral "unobtainium" e suas propriedades supercondutoras
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Biotecnologia:</strong> 
+                            A criação dos avatares através de engenharia genética
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Neurociência:</strong> 
+                            A conexão neural dos Na'vi com a natureza através de suas tranças
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Questões Éticas:</strong> 
+                            Colonização, exploração de recursos, respeito a culturas nativas
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Aspectos Culturais:</strong> 
+                            A relação espiritual dos Na'vi com Eywa (a natureza interconectada)
+                        </div>
+                    </li>
                 </ul>
             </div>
 
+            <!-- APLICAÇÃO EM SALA -->
             <h2 class="section-title">
                 <i class='bx bx-book-open'></i>
                 Aplicação em Sala de Aula
@@ -304,8 +571,9 @@
                 conectando conceitos científicos com reflexões sobre nosso próprio planeta e as consequências das ações humanas.
             </p>
 
+            <!-- BOTÕES DE AÇÃO -->
             <div class="action-buttons">
-                <a href="#" class="btn-watch">
+                <a href="https://www.youtube.com/results?search_query=avatar+2009+trailer" target="_blank" class="btn-watch">
                     <i class='bx bx-play-circle'></i>
                     Assistir Trailer
                 </a>
@@ -318,34 +586,59 @@
     </section>
 
     <script>
-        // Criando bolhas animadas no fundo
+        // Menu Mobile Toggle
+        const menuIcon = document.getElementById('menu-icon');
+        const navbar = document.querySelector('.navbar');
+
+        if (menuIcon) {
+            menuIcon.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+            });
+
+            // Fechar menu ao clicar em um link
+            document.querySelectorAll('.navbar a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navbar.classList.remove('active');
+                });
+            });
+        }
+
+        // Bubbles Animation
         function createBubbles() {
             const bubble = document.createElement('div');
             bubble.classList.add('bubble');
-            const size = Math.random() * 80 + 20;
+            
+            const size = Math.random() * 60 + 30;
             bubble.style.width = size + 'px';
             bubble.style.height = size + 'px';
-            bubble.style.position = 'fixed';
             
-            const maxLeft = window.innerWidth - size - 20;
-            const randomLeft = Math.random() * maxLeft;
-            bubble.style.left = Math.max(0, randomLeft) + 'px';
+            const maxLeft = window.innerWidth - size;
+            bubble.style.left = Math.max(0, Math.random() * maxLeft) + 'px';
+            bubble.style.animationDuration = (Math.random() * 6 + 8) + 's';
             
-            bubble.style.animationDuration = (Math.random() * 5 + 5) + 's';
             document.body.appendChild(bubble);
 
             setTimeout(() => {
                 bubble.remove();
-            }, 10000);
+            }, 13000);
         }
-        setInterval(createBubbles, 500);
+
+        setInterval(createBubbles, 700);
+
+        // Scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
 
-    <script src="main.js"></script>
-    
 </body>
 </html>
-
-
-
-

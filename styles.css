@@ -19,7 +19,6 @@
     --bg-color: #fff;
 }
 
-
 body{
     background: var(--text-color);
     color: var(--bg-color);
@@ -35,9 +34,7 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 20px 100px;
-    transition: 0.5s;
-    /* background: var(--main-color); */
-     transition: top 0.3s ease-in-out;
+    transition: top 0.3s ease-in-out;
 }
 
 section{
@@ -51,6 +48,11 @@ section{
     display: flex;
     align-items: center;
     column-gap: 0.5rem;
+}
+
+.intro img{
+    width:90px;
+    margin-bottom: 20px;
 }
 
 .logo .bx{
@@ -91,39 +93,78 @@ section{
 #menu-icon{
     font-size: 24px;
     cursor: pointer;
-    z-index: 10000001;
+    z-index: 10001;
     display: none;
 }
+
+/* ============ CORREÇÃO DO MENU MOBILE ============ */
 @media (max-width: 768px){
     header{
-        padding: 10px 20px;
+        padding: 15px 20px;
     }
-    .navbar{
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        background: var(--text-color);
-        flex-direction: column;
-        align-items: center;
-        row-gap: 1.5rem;
-        padding: 1.5rem 0;
-        display: none;
-        z-index: 999
-        
-        
-        ;
-        transition: height 0.3s ease-in-out;
-    }
-    .navbar.active{
-        display: flex;
-    }
+    
     #menu-icon{
         display: block;
         color: var(--bg-color);
         font-size: 2rem;
         cursor: pointer;
+    }
+    
+    .navbar{
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: var(--text-color);
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 0;
+        z-index: 999;
+        
+        /* MUDANÇA IMPORTANTE: usar max-height ao invés de display */
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+        border-top: 1px solid rgba(255, 44, 31, 0);
+    }
+
+    .intro img{
+        width:90px;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    
+    .navbar.active{
+        max-height: 500px;
+        opacity: 1;
+        padding: 1.5rem 0;
+        border-top: 1px solid rgba(255, 44, 31, 0.5);
+    }
+    
+    .navbar li{
+        /* width: 100%; */
+        text-align: center;
+        padding: 1rem 0;
+        position: fixed;
+    }
+    
+    .navbar a{
+        display: block;
+        padding: 0.5rem 2rem;
+        font-size: 1.1rem;
+    }
+    
+    header .btn{
+        display: none;
+    }
+
+    .filmes{
+        padding-left: 20px;
     }
 }
 
@@ -139,17 +180,17 @@ section{
 .btn:hover{
    background-color: #a30505;
    transform: scale(1.05);
-    
 }
 
 .container{
     width: 100%;
-    min-height: 640px;
+    min-height: 700px;
     position: relative;
     display: flex;
     align-items: center;
     background: rgb(2, 3, 7, 0.4)
 }
+
 .container img{
     position: absolute;
     width: 100%;
@@ -157,6 +198,7 @@ section{
     object-fit: cover;
     z-index: -1;
 }
+
 .swiper-pagination-bullet{
     width: 6px !important;
     height: 6px !important;
@@ -173,7 +215,6 @@ section{
 .home-text{
     z-index: 1000;
     padding: 200px 100px;
-
 }
 
 @media (max-width: 768px) {
@@ -184,6 +225,8 @@ section{
     .home-text h1 {
         font-size: 2rem;
     }
+
+    
 }
 
 .home-text span{
@@ -254,7 +297,6 @@ section{
     transition: transform .5s ease-in-out;
 }
 
-
 .caixa .caixa-img img{
     width: 100%;
     height: 350px;
@@ -271,7 +313,6 @@ section{
     transform: translateY(-10px);
     transition: transform 0.8s ease-in-out;
     transform: scale(1.08) translateY(-5px);
-
 }
 
 .assunto{
@@ -279,9 +320,8 @@ section{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-     padding: 3em;
+    padding: 3em;
     box-sizing: border-box;
-
 }
 
 .body-intro{
@@ -320,8 +360,8 @@ section{
     left: 0;
     top: 0;
     height: 100%;
-    width: 2px; /* Espessura da linha */
-    background-color: var(--main-color);/* Cor da linha */
+    width: 2px;
+    background-color: var(--main-color);
     border-radius: 3px;
 }
 
@@ -331,7 +371,6 @@ section{
     margin-bottom: 20px;
 }
 
-/* Ajustes para a introdução em telas menores */
 @media (max-width: 768px) {
     .body-intro {
         padding: 15px;
@@ -367,7 +406,6 @@ section{
     }
 }
 
-/* Para telas muito pequenas (celulares) */
 @media (max-width: 480px) {
     .title {
         font-size: 1.7rem;
@@ -379,12 +417,20 @@ section{
         line-height: 1.4;
     }
 
+    .intro img{
+        width:90px;
+        margin-bottom: 20px;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
     .btn-btn {
         font-size: 0.9rem;
         padding: 8px 16px;
     }
 }
-
 
 .autor {
     margin-top: 20px;
@@ -414,13 +460,13 @@ section{
 
 @keyframes fadeIn {
     from {
-    opacity: 0;
-    transform: translateY(30px);
-}
+        opacity: 0;
+        transform: translateY(30px);
+    }
     to {
-    opacity: 1;
-    transform: translateY(0);
-}
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .bubble {
@@ -434,17 +480,12 @@ section{
 }
 
 @keyframes rise {
-0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-}
-100% {
-    transform: translateY(-1200px) scale(0.5);
-    opacity: 0;
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1200px) scale(0.5);
+        opacity: 0;
     }
 }
-
-
-
-
-
