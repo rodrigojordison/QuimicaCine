@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <meta name="author" content="Jose Rodrigo">
     <title>Fórum -QuímicaCine</title>
 </head>
@@ -80,6 +81,38 @@
 
             .forum-description {
                 font-size: 1rem;
+            }
+
+             header {
+                padding: 15px 20px;
+            }
+
+            #menu-icon {
+                display: block;
+            }
+
+            #menu-icon {
+                display: block;
+            }
+
+            .navbar {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: rgba(2, 3, 7, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                transition: left 0.4s ease;
+                text-align: center;
+            }
+
+            .navbar.active {
+                left: 0;
+            }
+
+            header .btn {
+                display: none;
             }
         }
     </style>
