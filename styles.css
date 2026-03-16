@@ -494,3 +494,152 @@ section{
         opacity: 0;
     }
 }
+
+/* Guia Didático */
+
+.didatico {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 3rem 1rem;
+}
+
+.guia-section {
+            background: rgba(229, 9, 20, 0.06);
+            border: 1px solid rgba(229, 9, 20, 0.25);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 700px;
+            width: 100%;
+ 
+            /* desktop: linha */
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+ 
+        /* ── ícone ── */
+        .guia-icon {
+            flex-shrink: 0;
+            width: 64px;
+            height: 64px;
+            background: rgba(229, 9, 20, 0.15);
+            border: 2px solid rgba(229, 9, 20, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+ 
+        .guia-icon i {
+            font-size: 2rem;
+            color: var(--main-color);
+        }
+ 
+        /* ── texto ── */
+        .guia-content { flex: 1; }
+ 
+        .guia-content h3 {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+ 
+        .guia-content h3 .badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: var(--main-color);
+            color: white;
+            padding: 2px 7px;
+            border-radius: 3px;
+        }
+ 
+        .guia-content p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            text-align: left;
+        }
+ 
+        .guia-steps {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 0.8rem;
+            flex-wrap: wrap;
+        }
+ 
+        .guia-step {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.82rem;
+            color: var(--text-gray);
+        }
+ 
+        .guia-step i {
+            color: var(--main-color);
+            font-size: 1rem;
+        }
+ 
+        /* ── botão ── */
+        .btn-download {
+            flex-shrink: 0;
+            padding: 0.85rem 1.6rem;
+            background: var(--main-color);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+ 
+        .btn-download:hover {
+            background: #c4070f;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(229, 9, 20, 0.45);
+        }
+ 
+        .btn-download i {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+ 
+        .btn-download:hover i { transform: translateY(3px); }
+ 
+        /* ── responsivo: coluna ── */
+        @media (max-width: 600px) {
+            body { padding: 1.2rem; }
+ 
+            .guia-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1.2rem;
+                padding: 1.6rem;
+            }
+ 
+            .guia-content p { text-align: center; }
+ 
+            .guia-steps { justify-content: center; }
+ 
+            .btn-download {
+                width: 100%;
+                justify-content: center;
+                border-radius: 50px;
+                padding: 1rem;
+                font-size: 1rem;
+            }
+        }
