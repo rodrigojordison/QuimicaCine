@@ -95,3 +95,24 @@ function createBubbles() {
 
 // Criar bolhas a cada 500ms
 setInterval(createBubbles, 500);
+
+
+// efeito de fade-in para o guia didático
+
+const guia = document.querySelector('.guia-section');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // pequeno delay para a animação parecer mais suave
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, 150);
+        }
+    });
+}, { threshold: 0.2 });
+
+observer.observe(guia);
+
+
+

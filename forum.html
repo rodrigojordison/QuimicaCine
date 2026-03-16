@@ -9,110 +9,121 @@
     <title>Fórum -QuímicaCine</title>
 </head>
 <style>
-        .forum-section {
-            min-height: 100vh;
-            padding: 120px 5% 60px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
 
-        .forum-container {
-            max-width: 1000px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-        }
+.forum-section {
+    min-height: 100vh;
+    padding: 120px 5% 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .forum-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+.forum-container {
+    max-width: 1000px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease 0.15s both;
+    
+}
 
-        .forum-title {
-            font-size: 2.8rem;
-            color: #e50914;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
+.forum-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.5s ease 0.3s both;
+}
 
-        .forum-title i {
-            font-size: 3rem;
-        }
+.forum-title {
+    font-size: 2.8rem;
+    color: #e50914;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
 
-        .forum-description {
-            font-size: 1.1rem;
-            color: #333;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
+.forum-title i {
+    font-size: 3rem;
+}
 
-        .forum-info {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
+.forum-description {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
 
-        .giscus-container {
-            margin-top: 2rem;
-        }
+.forum-info {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
 
-        @media (max-width: 768px) {
-            .forum-container {
-                padding: 2rem 1.5rem;
-            }
+.giscus-container {
+    margin-top: 2rem;
+    animation: fadeInUp 0.5s ease 0.45s both;
+}
 
-            .forum-title {
-                font-size: 2rem;
-            }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
 
-            .forum-title i {
-                font-size: 2.2rem;
-            }
+@media (max-width: 768px) {
+    .forum-container {
+        padding: 2rem 1.5rem;
+    }
 
-            .forum-description {
-                font-size: 1rem;
-            }
+    .forum-title {
+        font-size: 2rem;
+    }
 
-             header {
-                padding: 15px 20px;
-            }
+    .forum-title i {
+        font-size: 2.2rem;
+    }
 
-            #menu-icon {
-                display: block;
-            }
+    .forum-description {
+        font-size: 1rem;
+    }
 
-            #menu-icon {
-                display: block;
-            }
+    header {
+        padding: 15px 20px;
+    }
 
-            .navbar {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                background: rgba(2, 3, 7, 0.98);
-                flex-direction: column;
-                padding: 2rem;
-                transition: left 0.4s ease;
-                text-align: center;
-            }
+    #menu-icon {
+        display: block;
+    }
 
-            .navbar.active {
-                left: 0;
-            }
+    #menu-icon {
+        display: block;
+    }
 
-            header .btn {
-                display: none;
+    .navbar {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        background: rgba(2, 3, 7, 0.98);
+        flex-direction: column;
+        padding: 2rem;
+        transition: left 0.4s ease;
+        text-align: center;
+    }
+
+    .navbar.active {
+        left: 0;
+    }
+
+    header .btn {
+        display: none;
             }
         }
     </style>
