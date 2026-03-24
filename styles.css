@@ -228,7 +228,7 @@ section{
         text-align: center;
     }
     .home-text h1 {
-        font-size: 2rem;
+        font-size: 1rem;
     }
 
     
@@ -540,79 +540,79 @@ section{
     justify-content: center;
 }
  
-        .guia-icon i {
-            font-size: 2rem;
-            color: var(--main-color);
-        }
+.guia-icon i {
+    font-size: 2rem;
+    color: var(--main-color);
+}
  
-        /* ── texto ── */
-        .guia-content { flex: 1; }
+/* ── texto ── */
+.guia-content { flex: 1; }
  
-        .guia-content h3 {
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
+.guia-content h3 {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
  
-        .guia-content h3 .badge {
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            background: var(--main-color);
-            color: white;
-            padding: 2px 7px;
-            border-radius: 3px;
-        }
+.guia-content h3 .badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--main-color);
+    color: white;
+    padding: 2px 7px;
+    border-radius: 3px;
+}
  
-        .guia-content p {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-            line-height: 1.7;
-            text-align: left;
-        }
+.guia-content p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    text-align: left;
+}
  
-        .guia-steps {
-            display: flex;
-            gap: 1.2rem;
-            margin-top: 0.8rem;
-            flex-wrap: wrap;
-        }
+.guia-steps {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 0.8rem;
+    flex-wrap: wrap;
+}
  
-        .guia-step {
-            display: flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.82rem;
-            color: var(--text-gray);
-        }
+.guia-step {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.82rem;
+    color: var(--text-gray);
+}
  
-        .guia-step i {
-            color: var(--main-color);
-            font-size: 1rem;
-        }
+.guia-step i {
+    color: var(--main-color);
+    font-size: 1rem;
+}
  
-        /* ── botão ── */
-        .btn-download {
-            flex-shrink: 0;
-            padding: 0.85rem 1.6rem;
-            background: var(--main-color);
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
+/* ── botão ── */
+.btn-download {
+    flex-shrink: 0;
+    padding: 0.85rem 1.6rem;
+    background: var(--main-color);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
  
         .btn-download:hover {
             background: #c4070f;
@@ -650,4 +650,50 @@ section{
                 padding: 1rem;
                 font-size: 1rem;
             }
-        }
+
+            .btn-view {
+                width: 100%;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 1rem;
+    font-size: 1rem;
+    }
+
+.guia-actions { width: 100%; }
+}
+
+.guia-actions {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.btn-view {
+    padding: 0.85rem 1.6rem;
+    background: transparent;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-view:hover {
+    background: rgba(229, 9, 20, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.25);
+}
+
+.btn-view i {
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+}
+
+.btn-view:hover i { transform: scale(1.15); }
